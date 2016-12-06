@@ -14,6 +14,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *HighTextF;
 @property (strong, nonatomic) IBOutlet UITextField *NorTextF;
 
+@property (nonatomic, strong) CAShapeLayer *vh_Layer;
+@property (nonatomic, strong) CAShapeLayer *h_Layer;
+@property (nonatomic, strong) CAShapeLayer *n_Layer;
+
 @end
 
 @implementation ViewController
@@ -40,28 +44,28 @@
 - (void)drawDataCircleWithVhRate:(CGFloat)vh_rate hRate:(CGFloat)h_rate norRate:(CGFloat)n_rate
 {
     // very high Layer
-    CAShapeLayer *vh_Layer = [CAShapeLayer layer];
-    vh_Layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:100 startAngle:-M_PI/2 endAngle:-M_PI/2+vh_rate clockwise:YES].CGPath;
-    vh_Layer.strokeColor = [UIColor orangeColor].CGColor;
-    vh_Layer.fillColor = [UIColor clearColor].CGColor;
-    vh_Layer.lineWidth = 10;
-    [self.view.layer addSublayer:vh_Layer];
+    self.vh_Layer = [CAShapeLayer layer];
+    self.vh_Layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:100 startAngle:-M_PI/2 endAngle:-M_PI/2+vh_rate clockwise:YES].CGPath;
+    self.vh_Layer.strokeColor = [UIColor orangeColor].CGColor;
+    self.vh_Layer.fillColor = [UIColor clearColor].CGColor;
+    self.vh_Layer.lineWidth = 10;
+    [self.view.layer addSublayer:self.vh_Layer];
     
     // high
-    CAShapeLayer *h_Layer = [CAShapeLayer layer];
-    h_Layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:99 startAngle:-M_PI/2+vh_rate  endAngle:h_rate+(-M_PI/2+vh_rate) clockwise:YES].CGPath;
-    h_Layer.strokeColor = [UIColor brownColor].CGColor;
-    h_Layer.fillColor = [UIColor clearColor].CGColor;
-    h_Layer.lineWidth = 8;
-    [self.view.layer addSublayer:h_Layer];
+    self.h_Layer = [CAShapeLayer layer];
+    self.h_Layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:99 startAngle:-M_PI/2+vh_rate  endAngle:h_rate+(-M_PI/2+vh_rate) clockwise:YES].CGPath;
+    self.h_Layer.strokeColor = [UIColor brownColor].CGColor;
+    self.h_Layer.fillColor = [UIColor clearColor].CGColor;
+    self.h_Layer.lineWidth = 8;
+    [self.view.layer addSublayer:self.h_Layer];
     
     // normal
-    CAShapeLayer *n_layer = [CAShapeLayer layer];
-    n_layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:98 startAngle:h_rate+(-M_PI/2+vh_rate) endAngle:n_rate+(h_rate+(-M_PI/2+vh_rate)) clockwise:YES].CGPath;
-    n_layer.strokeColor = [UIColor lightGrayColor].CGColor;
-    n_layer.fillColor = [UIColor clearColor].CGColor;
-    n_layer.lineWidth = 6;
-    [self.view.layer addSublayer:n_layer];
+    self.n_Layer = [CAShapeLayer layer];
+    self.n_Layer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height/2+100) radius:98 startAngle:h_rate+(-M_PI/2+vh_rate) endAngle:n_rate+(h_rate+(-M_PI/2+vh_rate)) clockwise:YES].CGPath;
+    self.n_Layer.strokeColor = [UIColor lightGrayColor].CGColor;
+    self.n_Layer.fillColor = [UIColor clearColor].CGColor;
+    self.n_Layer.lineWidth = 6;
+    [self.view.layer addSublayer:self.n_Layer];
 
     
     // animate layer
@@ -84,6 +88,12 @@
 }
 
 - (IBAction)analyseAction:(UIButton *)sender {
+    
+    if (self.vh_Layer&&self.h_Layer&&self.n_Layer) {
+        [self.vh_Layer removeFromSuperlayer];
+        [self.h_Layer removeFromSuperlayer];
+        [self.n_Layer removeFromSuperlayer];
+    }
     
     [self countMatches];
 
