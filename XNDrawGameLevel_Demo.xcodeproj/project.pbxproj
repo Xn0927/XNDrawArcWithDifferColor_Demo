@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					5163FA471DED746F0034C3AE = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = C65JXQTL23;
 						ProvisioningStyle = Automatic;
 					};
 					5163FA601DED746F0034C3AE = {
@@ -422,7 +423,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C65JXQTL23;
 				INFOPLIST_FILE = XNDrawGameLevel_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idThis.XNDrawGameLevel-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,7 +436,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C65JXQTL23;
 				INFOPLIST_FILE = XNDrawGameLevel_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idThis.XNDrawGameLevel-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +510,7 @@
 				5163FA771DED746F0034C3AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5163FA781DED746F0034C3AE /* Build configuration list for PBXNativeTarget "XNDrawGameLevel_DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +519,7 @@
 				5163FA7A1DED746F0034C3AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5163FA7B1DED746F0034C3AE /* Build configuration list for PBXNativeTarget "XNDrawGameLevel_DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +528,7 @@
 				5163FA7D1DED746F0034C3AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
